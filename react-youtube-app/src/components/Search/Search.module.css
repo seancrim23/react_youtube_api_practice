@@ -1,0 +1,41 @@
+.Search {
+    width: 100%;
+    background-color: red;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.SearchBox {
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../../assets/images/search-icon-html-6.jpg');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.SearchButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.FavoritesButton {
+    float: right; 
+    text-align: right;
+    padding: 14px 16px;
+    background-color: red;
+    font-size: 17px;
+    margin-right: 20px;
+  }
+  

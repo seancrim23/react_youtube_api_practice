@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
 import './App.css';
-import Auth from './containers/auth/Auth';
+import Auth from './containers/Auth/Auth';
+import YoutubeSearch from './containers/YoutubeSearch/YoutubeSearch';
 import { AuthContext } from './context/auth-context';
 
 const App = props => {
   const authContext = useContext(AuthContext);
 
   if(authContext.response){
-    console.log(authContext.response);
+    localStorage.setItem('accessToken', authContext.response.accessToken);
   }
 
-  let content = !authContext.isAuth ? <Auth authToggled={authContext.toggleAuth} /> : <div><h1>Successful Auth!</h1></div>;
+  let content = !authContext.isAuth ? <Auth authToggled={authContext.toggleAuth} /> : <YoutubeSearch />;
   return (
     <div className="App">
       {content}

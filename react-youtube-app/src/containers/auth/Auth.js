@@ -5,16 +5,18 @@ const responseGoogle = response => {
     console.log(response);
 };
 
+//need to make it so i can pull client id from an env file
 const Auth = props => {
         return (
             <div>
                 <h1>Authorize through Google!</h1> 
                 <GoogleLogin
-                    clientId="286012764941-eg4lgeclaf29a3mjq61852d4rjome2hg.apps.googleusercontent.com"
+                    clientId=""
                     buttonText="Login"
                     onSuccess={response => props.authToggled(response)}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
+                    scope="profile email https://www.googleapis.com/auth/youtube.readonly"
                 />
             </div>
         );
