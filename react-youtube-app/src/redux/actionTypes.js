@@ -4,3 +4,6 @@ export const YOUTUBE_SEARCH_FAIL = 'YOUTUBE_SEARCH_FAIL';
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAIL = 'AUTH_FAIL';
+
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';

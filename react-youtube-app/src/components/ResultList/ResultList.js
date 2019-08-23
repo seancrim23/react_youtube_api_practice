@@ -11,6 +11,7 @@ const ResultList = props => {
                 description={result.snippet.description}
                 thumbnail={result.snippet.thumbnails.medium.url}
                 id={result.id.videoId}
+                clickResult={props.clickedOnResult}
                 />
             })}
         </div>

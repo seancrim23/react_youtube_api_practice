@@ -7,11 +7,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import youtubeSearchReducer from './redux/reducers/YoutubeSearch';
 import authReducer from './redux/reducers/Auth';
+import favoriteReducer from './redux/reducers/Favorites';
 import { Provider } from 'react-redux';
 
 const rootReducer = combineReducers({
     youtubeSearch: youtubeSearchReducer,
-    auth: authReducer
+    auth: authReducer,
+    favs: favoriteReducer
 })
 
 const store = createStore(rootReducer,

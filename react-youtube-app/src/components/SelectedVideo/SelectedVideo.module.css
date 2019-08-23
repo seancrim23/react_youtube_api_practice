@@ -1,0 +1,18 @@
+.SelectedVideo {
+    width: 600px;
+    height: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -300px;
+    border: 3px solid green;
+    box-shadow: 3px 5px;
+    background-color: white;
+    opacity: 1;
+}
+
+.SelectedVideoInfo {
+    padding: 2px 16px;
+    margin-bottom: 15px;
+}
