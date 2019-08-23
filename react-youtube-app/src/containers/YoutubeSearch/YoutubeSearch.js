@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import Search from '../../components/Search/Search';
-import ResultList from '../../components/ResultList/ResultList';
-import classes from './YoutubeSearch.module.css';
+import Search from '../Search/Search';
 
 class YoutubeSearch extends Component {
+
     render() {
         return (
             <div>
                 <Search />
-                <div className={classes.ResultsSection}>
-                    <ResultList />
-                </div>
             </div>
         );
     };

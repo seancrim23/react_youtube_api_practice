@@ -5,9 +5,14 @@ import classes from './ResultList.module.css';
 const ResultList = props => {
     return (
         <div className={classes.ResultList}>
-            <Result />
-            <Result />
-            <Result />
+            {props.results.map(result => {
+                return <Result key={result.id.videoId} 
+                title={result.snippet.title}
+                description={result.snippet.description}
+                thumbnail={result.snippet.thumbnails.medium.url}
+                id={result.id.videoId}
+                />
+            })}
         </div>
     );
 };

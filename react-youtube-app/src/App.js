@@ -1,22 +1,32 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import Auth from './containers/Auth/Auth';
 import YoutubeSearch from './containers/YoutubeSearch/YoutubeSearch';
-import { AuthContext } from './context/auth-context';
 
 const App = props => {
-  const authContext = useContext(AuthContext);
 
-  if(authContext.response){
-    localStorage.setItem('accessToken', authContext.response.accessToken);
+  if(props.authResponse){
+    localStorage.setItem('accessToken', props.authResponse.accessToken);
   }
 
-  let content = !authContext.isAuth ? <Auth authToggled={authContext.toggleAuth} /> : <YoutubeSearch />;
+  let content = !props.isAuthenticated ? <Auth /> : <YoutubeSearch />;
+  let errorMessage = !props.authError ? null : <h2>ERROR! {props.authError}</h2>;
+
   return (
     <div className="App">
       {content}
+      {errorMessage}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.isAuth,
+    authResponse: state.auth.response,
+    authError: state.auth.error
+  };
+};
+
+export default connect(mapStateToProps)(App);

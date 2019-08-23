@@ -3,12 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import AuthContextProvider from './context/auth-context';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import youtubeSearchReducer from './redux/reducers/YoutubeSearch';
+import authReducer from './redux/reducers/Auth';
+import { Provider } from 'react-redux';
+
+const rootReducer = combineReducers({
+    youtubeSearch: youtubeSearchReducer,
+    auth: authReducer
+})
+
+const store = createStore(rootReducer,
+    applyMiddleware(thunk));
 
 ReactDOM.render(
-<AuthContextProvider>   
-    <App />
-</AuthContextProvider>, 
+    <Provider store={store}>  
+        <App />
+    </Provider>
+, 
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
