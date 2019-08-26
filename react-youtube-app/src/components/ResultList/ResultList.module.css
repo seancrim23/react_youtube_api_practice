@@ -1,5 +1,7 @@
 .ResultList {
     text-align:center;
     width: 100%;
-    height: auto;
+    position: fixed;
+    overflow-y: scroll;
+    height: 100%;
 }

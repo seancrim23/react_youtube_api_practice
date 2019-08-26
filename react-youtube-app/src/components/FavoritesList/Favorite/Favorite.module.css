@@ -1,16 +1,8 @@
-.Result {
+.Favorite {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 50%;
+    width: 80%;
     margin-bottom: 15px;
     display: inline-block;
     vertical-align: top;
-    margin-right: 165px;
-    margin-left: 165px;
 }
-
-.ResultInfo {
-    padding: 2px 16px;
-    margin-bottom: 15px;
-}
-

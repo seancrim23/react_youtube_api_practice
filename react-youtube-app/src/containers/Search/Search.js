@@ -5,12 +5,14 @@ import ResultList from '../../components/ResultList/ResultList';
 import * as actions from '../../redux/actions/index';
 import Loader from 'react-loader-spinner';
 import SelectedVideo from '../../components/SelectedVideo/SelectedVideo';
+import FavoritesList from '../../components/FavoritesList/FavoritesList';
 
 
 const Search = props => {
     const [ searchDisabled, setSearchDisabled ] = useState(true);
     const [ showModal, setShowModal ] = useState(false);
     const [ selectedVidInfo, setSelectedVidInfo ] = useState({});
+    const [ showFavs, setShowFavs ] = useState(false);
 
     function submitHandler(event){
         event.preventDefault();
@@ -23,7 +25,7 @@ const Search = props => {
 
     function favoritesHandler(event) {
         event.preventDefault();
-        console.log('Will be implemented to show all of a users favorites.');
+        setShowFavs(!showFavs);
     };
 
     function modalToggleHandler(event) {
@@ -48,7 +50,7 @@ const Search = props => {
     let content = null;
 
     if(props.searchIsSearching){
-        content = <Loader type="Hearts" color="#FFC0CB" height={200} width={200} />;
+        content = <Loader style={{textAlign: "center"}} type="Hearts" color="#FFC0CB" height={200} width={200} />;
     }else{
         if(props.youtubeResults !== []){
             content = <ResultList clickedOnResult={modalToggleHandler} results={props.youtubeResults} />;
@@ -58,7 +60,8 @@ const Search = props => {
         }
     }
 
-    let modal = !showModal ? null : <SelectedVideo selectedVideo={selectedVidInfo} />;
+    const modal = !showModal ? null : <SelectedVideo selectedVideo={selectedVidInfo} />;
+    const favoritesList = showFavs ? <FavoritesList favsList={props.favoritesList} /> : null;
 
     return (
         <div>
@@ -68,9 +71,10 @@ const Search = props => {
                 <input className={classes.SearchButton} type="submit" value="SEARCH" disabled={searchDisabled} />
                 <button className={classes.FavoritesButton} onClick={favoritesHandler}>MY FAVORITES ({props.favoritesList.length})</button>
             </form>
-            <div onClick={modalCloseHandler}>
+            <div className={classes.Results} onClick={modalCloseHandler}>
                 {content}
             </div>
+            {favoritesList}
             {modal}
         </div>
     );
