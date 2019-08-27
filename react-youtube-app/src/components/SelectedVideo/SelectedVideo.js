@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/index';
 import classes from './SelectedVideo.module.css';
 
-const SelectedVideo = props => {
+export const SelectedVideo = props => {
 
     const { thumbnails, description, title } = props.selectedVideo.snippet;
     const id = props.selectedVideo.id.videoId;
