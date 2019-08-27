@@ -11,9 +11,10 @@ This is the same application as the one I wrote using vanilla Javascript. Howeve
 - Create a component to add favorites to when "favorite" button is clicked - DONE
 - Create functionality to display all favorites - DONE
 - Use Redux to handle actions - DONE
+- Add unit testing with Jest/Enzyme - IN PROGRESS
 - Upgrade the styling to make it look nice
-- Clean up code?
-- Optimize?
+- Clean up code? - IN PROGRESS
+- Optimize? 
 
 # GROWING PAINS
 - Originally used React Context to authorize. Context did not like working with Redux so I moved the authorization actions to be handled by Redux. I feel as though there may be a better way to handle it but for now it works.

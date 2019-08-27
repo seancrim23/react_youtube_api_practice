@@ -6,6 +6,7 @@ import * as actions from '../../redux/actions/index';
 import Loader from 'react-loader-spinner';
 import SelectedVideo from '../../components/SelectedVideo/SelectedVideo';
 import FavoritesList from '../../components/FavoritesList/FavoritesList';
+import SearchForm from '../../components/SearchForm/SearchForm';
 
 
 const Search = props => {
@@ -62,15 +63,16 @@ const Search = props => {
 
     const modal = !showModal ? null : <SelectedVideo selectedVideo={selectedVidInfo} />;
     const favoritesList = showFavs ? <FavoritesList favsList={props.favoritesList} /> : null;
-
+    
     return (
         <div>
-            <form className={classes.Search} onSubmit={submitHandler}>
-                <h1>Search for a video on Youtube!</h1>
-                <input className={classes.SearchBox} type="text" name="query" onChange={inputHandler}/>
-                <input className={classes.SearchButton} type="submit" value="SEARCH" disabled={searchDisabled} />
-                <button className={classes.FavoritesButton} onClick={favoritesHandler}>MY FAVORITES ({props.favoritesList.length})</button>
-            </form>
+            <SearchForm 
+                buttonSubmit={submitHandler}
+                changedInput={inputHandler}
+                searchIsDisabled={searchDisabled}
+                seeFavorites={favoritesHandler}
+                favList={props.favoritesList}
+            />
             <div className={classes.Results} onClick={modalCloseHandler}>
                 {content}
             </div>
