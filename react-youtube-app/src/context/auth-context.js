@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+//Was used at the beginning to provide the authorization, has been replaced by redux.
 export const AuthContext = React.createContext({
     isAuth: false,
     toggleAuth: () => {},

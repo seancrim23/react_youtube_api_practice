@@ -15,7 +15,6 @@ export function youtubeSearch(query) {
             dispatch(youtubeSearchSuccess(response.data.items));
         })
         .catch(error => {
-            console.log(error);
             dispatch(youtubeSearchFail(error));
         });
     };

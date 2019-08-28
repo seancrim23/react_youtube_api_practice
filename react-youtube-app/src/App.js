@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Auth from './containers/Auth/Auth';
-import YoutubeSearch from './containers/YoutubeSearch/YoutubeSearch';
+import Search from './containers/Search/Search';
 
 const App = props => {
 
@@ -10,7 +10,7 @@ const App = props => {
     localStorage.setItem('accessToken', props.authResponse.accessToken);
   }
 
-  let content = !props.isAuthenticated ? <Auth /> : <YoutubeSearch />;
+  let content = !props.isAuthenticated ? <Auth /> : <Search />;
   let errorMessage = !props.authError ? null : <h2>ERROR! {props.authError}</h2>;
 
   return (
